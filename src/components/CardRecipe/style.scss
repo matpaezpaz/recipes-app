@@ -1,0 +1,63 @@
+.card-recipe {
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+    background-color: aliceblue;
+    margin: 20px 10px;
+    display: flex;
+    flex-flow: column wrap;
+    flex: 1 0 auto;
+    flex-basis: 20%;
+    &__header {
+        figure {
+            border-radius: 5px;
+            margin: 0px;
+            flex: 1 0 auto;
+            img {
+                border-radius: 5px 5px 0px 0px;
+                width: 100%;
+            }
+        }
+        h1 {
+            margin: 5px;
+            text-align: center;
+        }
+    }
+    &__body {
+        margin: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        &__chef-picture {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+            margin: 10px;
+            text-align: center;
+            img {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+                border-radius: 50%;
+            }
+        }
+        &__chef-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex-grow: 3;
+            h1 {
+                margin: 0;
+            }
+            p {
+                font-size: .8rem;
+                margin: 0;
+                display: block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                line-height: .8rem;
+                max-height: 2.4rem;
+                word-wrap: break-word;
+            }
+
+        }
+    }
+}

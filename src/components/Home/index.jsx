@@ -28,7 +28,7 @@ class Home extends React.Component {
                     <article className="latest-recipes__recipes">
                         {
                             this.props.loading ? (<Loading/>) :
-                            this.props.recipes ? this.props.recipes.map( recipe => <CardRecipe title={recipe.title} /> ) : 'No recipes'
+                            this.props.recipes ? this.props.recipes.map( recipe => <CardRecipe key={recipe.id} {...recipe} /> ) : 'No recipes'
                         }
                     </article>
                 </section>
