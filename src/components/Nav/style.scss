@@ -1,0 +1,53 @@
+$nav-background-color: #20afc9;
+$nav-color: #192587;
+
+@mixin blurred-text {
+    color: lighten($nav-color, 20%);
+    text-shadow: 0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5);
+}
+
+.nav {
+    background-color: $nav-background-color;
+}
+
+.main-nav {
+    color: $nav-color;
+    font-family: 'Pacifico', cursive;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    &__brand {
+        font-size: 2rem;
+        transition: .3s;
+        &:hover {
+            @include blurred-text();
+        }
+        a{
+            text-decoration: none;
+            color: $nav-color;
+        }
+    }
+    &__links {
+        font-size: 1.25rem;
+        display: flex;
+        align-content: center;
+        ul {
+            display: flex;
+            li{
+                a{
+                    color: $nav-color;
+                    text-decoration: none;
+                }
+                align-self: center;    
+                margin-right: .5rem;
+                transition: .3s;
+                &:hover {
+                    @include blurred-text();
+                }
+            }
+            margin: 0;
+            display: flex;
+            list-style: none;
+        }
+    }
+}
