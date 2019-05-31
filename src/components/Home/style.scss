@@ -1,0 +1,12 @@
+.latest-recipes {
+    display: flex;
+    flex-flow: column nowrap;
+    &__header{
+        border-bottom: 1px solid black;
+    }
+    &__recipes{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly
+    }
+}

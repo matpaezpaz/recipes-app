@@ -1,0 +1,20 @@
+.loading-component {
+    margin: 2rem;
+    &__title {
+        &::after {
+            animation: dots .2s linear;
+        }
+    }
+}
+
+@keyframes dots {
+    0% {
+        content: '.'
+    }
+    33% {
+        content: '..'
+    }
+    66% {
+        content: '...'
+    }
+}
