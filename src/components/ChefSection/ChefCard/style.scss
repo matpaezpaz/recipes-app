@@ -1,4 +1,8 @@
 .chef-card {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    transition: .2s;
     &__picture {
         display: flex;
         justify-content: center;
@@ -6,11 +10,26 @@
         flex-grow: 1;
         margin: 10px;
         text-align: center;
+        overflow: hidden;
+        border-radius: 50%;
         img {
             width: 200px;
             height: 200px;
             object-fit: cover;
-            border-radius: 50%;
+            transition: .2s;
+            @at-root .chef-card:hover .chef-card__picture img {
+                transform: scale(1.05);
+            }
         }
     }
+    
+    &__header {
+        h1{
+            color: black;
+        }
+    }
+}
+a{
+
+    text-decoration: none;
 }

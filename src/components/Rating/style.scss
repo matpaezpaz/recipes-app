@@ -1,0 +1,21 @@
+$color: gray;
+$color-filled: gold;
+.rating-component {
+    &__star {
+        font-size: 2rem;
+        &--filled {
+            color: $color-filled;
+            &::selection {
+                color: $color-filled;
+                background-color: black;
+            }
+        }
+        &--not-filled {
+            color: $color;
+            &::selection {
+                color: $color;
+                background-color: black;
+            }
+        }
+    }
+}

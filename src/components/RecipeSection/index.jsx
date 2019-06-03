@@ -1,13 +1,13 @@
 import React from 'react'
 import './style.scss';
 import Loading from '../Loading';
-import CardRecipe from '../CardRecipe';
+import RecipeCard from './RecipeCard';
 const RecipeSection = ({recipes,loading}) => {
     return (
         <div className="recipe-section">
             {
                 loading ? (<Loading />) :
-                    recipes ? recipes.map(recipe => <CardRecipe key={recipe.id} {...recipe} />) : 'No recipes'
+                    recipes ? recipes.map(recipe => <RecipeCard key={recipe.id} {...recipe} />) : 'No recipes'
             }
         </div>
     )

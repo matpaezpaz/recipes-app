@@ -36,7 +36,7 @@ class Home extends React.Component {
                 <section className="home-section">
                     <header className="home-section__header">
                         <h1>
-                            Latest Chefs
+                            Our top chefs
                         </h1>
                     </header>
                     <ChefSection chefs={this.props.chefs} loading={this.props.chefsLoading} />

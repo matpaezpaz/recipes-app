@@ -1,17 +1,30 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
+import './style.scss';
 import Loading from '../Loading';
+import {  getChefs } from '../../redux/actions';
 import ChefCard from './ChefCard';
-import './style.scss'
 
-const  ChefSection = ({chefs,loading}) => {
-    return (
-        <div className="chef-section">
-            {
-                loading ? (<Loading />) :
-                    chefs ? chefs.map(chef => <ChefCard key={chef.id} {...chef} />) : 'No chefs'
-            }
-        </div>
-    )
+const mapStateToProps = (state) => ({
+    loading: state.chefs.isChefsLoading === true,
+    chefs: state.chefs.chefs
+});
+
+class ChefSection extends Component {
+    componentDidMount() {
+        this.props.dispatch(getChefs());
+    }
+    render() {
+        
+        return (
+            <div className="chef-section">
+                {
+                    this.props.loading ? (<Loading />) :
+                        this.props.chefs ? this.props.chefs.map(chef => <ChefCard key={chef.id} {...chef} />) : 'No chefs'
+                }
+            </div>
+        )
+    }
 }
 
-export default ChefSection;
+export default connect(mapStateToProps, null)(ChefSection);

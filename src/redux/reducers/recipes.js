@@ -1,9 +1,11 @@
-import { GET_RECIPES, GET_RECIPES_SUCCESS } from "../actionTypes";
+import { GET_RECIPES, GET_RECIPES_SUCCESS, GET_RECIPE, GET_RECIPE_SUCCESS } from "../actionTypes";
 
 
 const initialState = {
     isRecipesLoading: true,
-    recipes: []
+    isRecipeLoading: true,
+    recipes: [],
+    recipe: {}
 }
 
 export default function (state = initialState, action) {
@@ -21,6 +23,20 @@ export default function (state = initialState, action) {
                 isRecipesLoading: false,
                 recipes: action.recipes
             };
+        }
+        case GET_RECIPE: {
+            return {
+                ...state,
+                isRecipeLoading: true,
+                recipe: {}
+            }
+        }
+        case GET_RECIPE_SUCCESS: {
+            return {
+                ...state,
+                isRecipeLoading: false,
+                recipe: action.recipe
+            }
         }
         default:
             return state;

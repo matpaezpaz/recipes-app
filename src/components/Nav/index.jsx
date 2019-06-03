@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import { Link } from 'react-router-dom';
-import { RECIPES, HOME } from '../../routes';
+import { RECIPES, HOME, CHEFS } from '../../routes';
 
 
 const Nav = () =>{
@@ -17,7 +17,9 @@ const Nav = () =>{
                     <div className="main-nav__links">
                         <ul>
                             <li>
-                                Chefs
+                                <Link to={CHEFS}>
+                                    Chefs
+                                </Link>
                             </li>
                             <li>
                                 <Link to={RECIPES}>
