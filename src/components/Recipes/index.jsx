@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getRecipeById, getRecipes } from '../../redux/actions';
-import ReactMarkdown from 'react-markdown';
 import RecipeSection from '../RecipeSection';
 import './style.scss';
+import Loading from '../Loading';
+import RecipeInfo from './RecipeInfo';
 
 
 const mapStateToProps = (state) => ({
@@ -32,33 +33,13 @@ class Recipes extends React.Component {
     }
 
     render() {
-        const {
-            instructions,
-            title,
-            prep_time,
-            rating,
-            createdAt
-        } = this.props.recipe;
         const idRecipe = this.props.match.params.idRecipe;
         return (
             <div className="container">
                 {   idRecipe !== undefined ?
-                    this.props.loading ? <p>CARGANDING</p> :
-                    <section className="recipe-description">
-                        <header className="recipe-descripction__title">
-                            <h1>
-                                {title}
-                            </h1>
-                        </header>
-                        <article className="recipe-description__body">
-                            <section className="recipe-description__body__info">
-                                {prep_time} - {rating} - {createdAt}
-                            </section>
-                            <ReactMarkdown source={instructions} />
-                        </article>
-                    </section>
+                    this.props.loading ? <Loading/> :
+                    <RecipeInfo {...this.props.recipe} />
                     : ''
-
                 }
                 <section className="other-recipes">
                     <header className="other-recipes__header">
