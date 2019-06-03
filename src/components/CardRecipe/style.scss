@@ -9,6 +9,8 @@
     flex-basis: 20%;
     &__header {
         figure {
+            height: 150px;
+            overflow: hidden;
             border-radius: 5px;
             margin: 0px;
             flex: 1 0 auto;
