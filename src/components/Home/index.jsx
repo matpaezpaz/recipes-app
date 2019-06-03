@@ -2,12 +2,14 @@ import React from 'react';
 import RecipeSection from '../RecipeSection';
 import './style.scss';
 import ChefSection from '../ChefSection';
-import { getRecipes } from '../../redux/actions';
+import { getRecipes , getChefs } from '../../redux/actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
-    loading: state.recipes.isRecipesLoading === true,
-    recipes: state.recipes.recipes
+    recipesloading: state.recipes.isRecipesLoading === true,
+    recipes: state.recipes.recipes,
+    chefs: state.chefs.chefs,
+    chefsLoading: state.recipes.isChefsLoading === true,
 });
 
 
@@ -15,6 +17,8 @@ const mapStateToProps = (state) => ({
 class Home extends React.Component {
     componentDidMount() {
         this.props.dispatch(getRecipes());
+        this.props.dispatch(getChefs());
+        console.log(this.props.chefs);
     }
 
 
@@ -27,7 +31,7 @@ class Home extends React.Component {
                             Latest Recipes
                         </h1>
                     </header>
-                    <RecipeSection recipes={this.props.recipes} loading={this.props.loading}/>
+                    <RecipeSection recipes={this.props.recipes} loading={this.props.recipesloading}/>
                 </section>
                 <section className="home-section">
                     <header className="home-section__header">
@@ -35,7 +39,7 @@ class Home extends React.Component {
                             Latest Chefs
                         </h1>
                     </header>
-                    <ChefSection />
+                    <ChefSection chefs={this.props.chefs} loading={this.props.chefsLoading} />
                 </section>
             </div>
         )
