@@ -1,12 +1,23 @@
-import React from 'react'
+import React from 'react';
+import './style.scss';
 
 const ChefCard = (props) => {
     const {
-        full_name
+        full_name,
+        image : {
+            url
+        }
     } = props;
     return (
-        <div>
-            {full_name}
+        <div className="chef-card">
+            <figure className="chef-card__picture">
+                <img src={url} alt=""/>
+            </figure>
+            <div className="chef-card__header">
+                <h1>
+                    {full_name}
+                </h1>
+            </div>
         </div>
     )
 }

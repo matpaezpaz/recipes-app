@@ -1,0 +1,16 @@
+.chef-card {
+    &__picture {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-grow: 1;
+        margin: 10px;
+        text-align: center;
+        img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+}

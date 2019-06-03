@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Loading from '../Loading';
 import ChefCard from './ChefCard';
-
+import './style.scss'
 
 const  ChefSection = ({chefs,loading}) => {
     return (
