@@ -17,7 +17,9 @@ const mapStateToProps = (state) => ({
 class Recipes extends React.Component {
     componentWillMount() {
         const idRecipe = this.props.match.params.idRecipe;
-        this.props.dispatch(getRecipeById(idRecipe));
+        if (idRecipe) {
+            this.props.dispatch(getRecipeById(idRecipe));
+        }
         this.props.dispatch(getRecipes());
     }    
     

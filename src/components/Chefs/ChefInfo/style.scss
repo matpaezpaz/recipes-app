@@ -1,0 +1,14 @@
+.chef-info {
+    display: flex;
+    flex-flow: row nowrap;
+    &__picture {
+        
+        img{
+            border-radius: 25px;
+            width: 250px;
+        }
+    }    
+    &__body {
+        
+    }
+}

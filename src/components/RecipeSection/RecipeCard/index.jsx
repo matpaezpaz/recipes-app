@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import { Link } from 'react-router-dom';
-import { RECIPES } from '../../../routes';
+import { RECIPES, CHEFS } from '../../../routes';
 import Rating from '../../Rating';
 
 const RecipeCard = (props) => {
@@ -10,12 +10,7 @@ const RecipeCard = (props) => {
         main_image : {
             url
         },
-        chef : {
-            full_name,
-            image : {
-                url : chef_image
-            },
-        },
+        
         prep_time,
         rating,
         _id
@@ -40,16 +35,22 @@ const RecipeCard = (props) => {
                     <Rating rating={rating} />
                 </article>
             </section>
-            <section className="card-recipe__chef">
-                <figure className="card-recipe__chef__chef-picture">
-                    <img src={chef_image} alt=""/>
-                </figure>
-                <article className="card-recipe__chef__chef-info">
-                    <h1>
-                        {full_name}
-                    </h1>
-                </article>
-            </section>
+            {
+                props.chef.full_name ? 
+                    <section className="card-recipe__chef">
+                        <figure className="card-recipe__chef__chef-picture">
+                            <img src={props.chef.image.url} alt=""/>
+                        </figure>
+                        <article className="card-recipe__chef__chef-info">
+                            <h1>
+                                <Link to={`${CHEFS}/${props.chef._id}`}>
+                                    {props.chef.full_name}
+                                </Link>
+                            </h1>
+                        </article>
+                    </section>
+                : ''
+            }
         </div>
     )
 }
