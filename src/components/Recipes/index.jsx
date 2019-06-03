@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getRecipes } from '../../redux/actions';
 import ReactMarkdown from 'react-markdown';
+import RecipeSection from '../RecipeSection';
 
 const mapStateToProps = (state) => ({
     loading: state.recipes.isRecipesLoading === true,
@@ -15,7 +16,10 @@ class Recipes extends React.Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="container">
+                <section>
+                    <RecipeSection />
+                </section>
                 {this.props.loading ? <p>CARGANDING</p> :
                     <div>
                         <h1>Tenemos {this.props.recipes.length} recetas</h1>
@@ -24,7 +28,7 @@ class Recipes extends React.Component {
                         })}
                     </div>
                 }
-            </React.Fragment>
+            </div>
         )
     }
 
