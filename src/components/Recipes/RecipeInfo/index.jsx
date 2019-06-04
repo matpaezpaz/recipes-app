@@ -5,6 +5,7 @@ import './style.scss'
 import { dateToDDMMYYYY } from "../../../utils";
 import { CHEFS } from '../../../routes';
 import { Link } from "react-router-dom";
+import IngredientSection from '../../IngredientSection';
 
 const RecipeInfo = ({
     instructions,
@@ -13,7 +14,8 @@ const RecipeInfo = ({
     rating,
     createdAt,
     main_image,
-    chef
+    chef,
+    ingredients
 }) => {
     return (
         <div className="recipe-info">
@@ -42,6 +44,14 @@ const RecipeInfo = ({
                                 Chef : {chef.full_name}
                             </Link>
                         </span>
+                    </section>
+                    <section className="recipe-info__description__body__ingredients">
+                        <header>
+                            <h1>
+                                Ingredients
+                            </h1>
+                        </header>
+                        <IngredientSection ingredients={ingredients} loading={false} />
                     </section>
                     <ReactMarkdown source={instructions} />
                 </article>
